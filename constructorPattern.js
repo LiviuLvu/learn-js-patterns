@@ -11,6 +11,7 @@
 
 // https://addyosmani.com/resources/essentialjsdesignpatterns/book/#constructorpatternjavascript
 // Constructors with prototypes
+
 function Planet(name, diameter) {
   this.name = name;
   this.diameter = diameter;
