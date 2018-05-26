@@ -1,0 +1,53 @@
+# Exclude files to be updated from dev branch into master, because are configured for AWS production
+.env
+backend/run-docker.sh
+backend/run.sh
+docker-compose.prod.yml
+docker-compose.stage.yml
+frontend/package.json
+########################
+.DS_Store
+
+jmeter.log
+
+pgdata
+
+coverage
+instrumented-src
+.nyc_output
+*.log
+node_modules
+*.swp
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# Static analysis tools
+.checkstyle
+.fbExcludeFilterFile
+.fbIncludeFilterFile
+.pmd
+.pmdruleset.xml
+.sonar
+
+# Deployment
+deploy
+
+# IntelliJ
+.idea
+
+# Vagrant
+.vagrant
+
+#eclispe
+*.iml
+.settings/.jsdtscope
+.project
+.settings/org.eclipse.wst.jsdt.ui.superType.container
+.settings/org.eclipse.wst.jsdt.ui.superType.name
+/build/
+.settings
+.classpath

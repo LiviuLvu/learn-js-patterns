@@ -1,0 +1,24 @@
+{
+  "name": "learn-js-patterns",
+  "version": "1.0.0",
+  "description": "Following lessons from online book by Addy Osmani",
+  "main": "constructorPattern.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiviuLvu/learn-js-patterns.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiviuLvu/learn-js-patterns/issues"
+  },
+  "homepage": "https://github.com/LiviuLvu/learn-js-patterns#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  }
+}
