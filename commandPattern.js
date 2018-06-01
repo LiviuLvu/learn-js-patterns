@@ -1,23 +1,34 @@
 // Command Pattern
 // https://addyosmani.com/resources/essentialjsdesignpatterns/book/#commandpatternjavascript
 
-const carManager = {
-  requestInfo(model, id) {
-    return `The information for ${model} with ID ${id} is foobar`;
-  },
-  buyVehicle(model, id) {
-    return `You have successfully purchased Item ${id}, a ${model}`;
-  },
-  arrangeViewing(model, id) {
-    return `You have successfully booked a viewing of ${model} ( ${id} )`;
-  },
-};
+function CarManager() {
+  this.requestInfo =  (car, id, color) => {
+    return `The information for ${car} with ID ${id} is ready. Color: ${color}`;
+  }
+  this.buyVehicle = (car, id) => {
+    return `You have successfully purchased Item ${id}, a ${car}`;
+  }
+  this.arrangeViewing = (car, id) => {
+    return `You have successfully booked a viewing of ${car} ( ${id} )`;
+  }
+}
 
-carManager.execute = function (name) {
-  return carManager[name] && carManager[name].apply( carManager, [].slice.call(arguments, 1) );
-};
+CarManager.prototype = {
+  execute: function (name) {
+    let fnCommand = name;
+    let args = Array.prototype.slice.call(arguments, 1);
+    if(!this[fnCommand]) return 'Command Not Found';
+    return this[fnCommand](...args);
+  },
+  
+  requestInfo: this.requestInfo,
+  buyVehicle: this.buyVehicle,
+  arrangeViewing: this.arrangeViewing,
+}
 
-console.log(carManager.execute('arrangeViewing', 'Ferrari', '14523'));
-console.log(carManager.execute('requestInfo', 'FordMondeo', '54323'));
-console.log(carManager.execute('requestInfo', 'FordEscort', '34232'));
-console.log(carManager.execute('buyVehicle', 'FordEscort', '34232'));
+let newCM = new CarManager;
+
+console.log(newCM.execute('arrangeViewing', 'Ferrari', '14523'));
+console.log(newCM.execute('requestInfo', 'FordMondeo', '54323', 'red'));
+console.log(newCM.execute('buyVehicle', 'FordEscort', '34232'));
+console.log(newCM.execute('notExistingFunction', 'Hunday', '00001'));
